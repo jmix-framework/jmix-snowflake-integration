@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://numericTypesEntityBrowse.caption"
+        focusComponent="numericTypesEntitiesTable">
+    <data readOnly="true">
+        <collection id="numericTypesEntitiesDc"
+                    class="com.company.snowflake.entity.NumericTypesEntity">
+            <fetchPlan extends="_base"/>
+            <loader id="numericTypesEntitiesDl">
+                <query>
+                    <![CDATA[select e from NumericTypesEntity e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="numericTypesEntitiesTable" spacing="true">
+        <filter id="filter"
+                dataLoader="numericTypesEntitiesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="numericTypesEntitiesTable"
+                    width="100%"
+                    dataContainer="numericTypesEntitiesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="refresh" type="refresh"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="numberValue"/>
+                <column id="numericValue"/>
+                <column id="decimalValue"/>
+                <column id="intValue"/>
+                <column id="integerValue"/>
+                <column id="bigintValue"/>
+                <column id="smallintValue"/>
+                <column id="tinyintValue"/>
+                <column id="byteintValue"/>
+                <column id="floatValue"/>
+                <column id="float4Value"/>
+                <column id="float8Value"/>
+                <column id="doubleValue"/>
+                <column id="doublePrecisionValue"/>
+                <column id="realValue"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="numericTypesEntitiesTable.create"/>
+                <button id="editBtn" action="numericTypesEntitiesTable.edit"/>
+                <button id="refreshBtn" action="numericTypesEntitiesTable.refresh"/>
+                <button id="removeBtn" action="numericTypesEntitiesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

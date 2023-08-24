@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="SnowflakeIntegration153">
+        <createTable tableName="TIME_TYPES_MAIN_ENTITY">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TIME_TYPES_MAIN_ENTITY"/>
+            </column>
+            <column name="TIME_AS_TIME" type="TIME"/>
+            <column name="TIME_AS_LOCAL_TIME" type="TIME"/>
+            <column name="TIME_AS_OFFSET_TIME" type="time with time zone"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
