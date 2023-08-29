@@ -17,9 +17,8 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.io.Writer;
 import java.sql.*;
-import java.time.LocalTime;
-import java.time.OffsetTime;
-import java.time.ZoneOffset;
+import java.time.*;
+import java.util.TimeZone;
 import java.util.UUID;
 
 public class SnowflakePlatform extends DatabasePlatform implements UuidMappingInfo {
@@ -59,16 +58,9 @@ public class SnowflakePlatform extends DatabasePlatform implements UuidMappingIn
         return super.convertObject(sourceObject, javaClass);
     }
 
-
-    @Override
-    public boolean shouldOptimizeDataConversion() {
-        //todo
-        return false;
-    }
-
     @Override
     public void setParameterValueInDatabaseCall(Object parameter, PreparedStatement statement, int index, AbstractSession session) throws SQLException {
-        //todo issue with timezones
+        // Convert some time values to string representation to store it properly
         if (parameter instanceof UUID) {
             parameter = convertToDataValueIfUUID(parameter);
         } else if (parameter instanceof Time) {
@@ -80,6 +72,11 @@ public class SnowflakePlatform extends DatabasePlatform implements UuidMappingIn
             OffsetTime offsetTimeUtc = offsetTime.withOffsetSameInstant(ZoneOffset.UTC);
             LocalTime localTimeUtc = offsetTimeUtc.toLocalTime();
             parameter = localTimeUtc.toString();
+        } else if (parameter instanceof LocalDateTime) {
+            LocalDateTime tmp = (LocalDateTime) parameter;
+            ZonedDateTime zonedDateTime = tmp.atZone(TimeZone.getDefault().toZoneId());
+            OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+            parameter = offsetDateTime.toString();
         }
 
         super.setParameterValueInDatabaseCall(parameter, statement, index, session);

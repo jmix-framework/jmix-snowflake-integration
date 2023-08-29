@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://jmix.io/schema/ui/window"
-        caption="msg://mainStoreSimpleEntityEdit.caption"
+        caption="msg://timestampTzEntityEdit.caption"
         focusComponent="form">
     <data>
-        <instance id="mainStoreSimpleEntityDc"
-                  class="com.company.snowflake.entity.MainStoreSimpleEntity">
+        <instance id="timestampTzEntityDc"
+                  class="com.company.snowflake.entity.TimestampTzEntity">
             <fetchPlan extends="_base"/>
             <loader/>
         </instance>
@@ -25,9 +25,12 @@
     <dialogMode height="600"
                 width="800"/>
     <layout spacing="true" expand="editActions">
-        <form id="form" dataContainer="mainStoreSimpleEntityDc">
+        <form id="form" dataContainer="timestampTzEntityDc">
             <column width="350px">
-                <textField id="nameField" property="name"/>
+                <textField id="descriptionField" property="description"/>
+                <dateField id="dateTimeValueField" property="dateTimeValue"/>
+                <dateField id="localDateTimeValueField" property="localDateTimeValue"/>
+                <dateField id="offsetDateTimeValueField" property="offsetDateTimeValue"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

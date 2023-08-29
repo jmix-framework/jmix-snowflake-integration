@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://jmix.io/schema/ui/window"
         xmlns:c="http://jmix.io/schema/ui/jpql-condition"
-        caption="msg://longIdMainStoreEntityBrowse.caption"
-        focusComponent="longIdMainStoreEntitiesTable">
+        caption="msg://timestampTzEntityBrowse.caption"
+        focusComponent="timestampTzEntitiesTable">
     <data readOnly="true">
-        <collection id="longIdMainStoreEntitiesDc"
-                    class="com.company.snowflake.entity.LongIdMainStoreEntity">
+        <collection id="timestampTzEntitiesDc"
+                    class="com.company.snowflake.entity.TimestampTzEntity">
             <fetchPlan extends="_base"/>
-            <loader id="longIdMainStoreEntitiesDl">
+            <loader id="timestampTzEntitiesDl">
                 <query>
-                    <![CDATA[select e from LongIdMainStoreEntity e]]>
+                    <![CDATA[select e from TimestampTzEntity e]]>
                 </query>
             </loader>
         </collection>
@@ -30,28 +30,31 @@
     </actions>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="longIdMainStoreEntitiesTable" spacing="true">
+    <layout expand="timestampTzEntitiesTable" spacing="true">
         <filter id="filter"
-                dataLoader="longIdMainStoreEntitiesDl">
+                dataLoader="timestampTzEntitiesDl">
             <properties include=".*"/>
         </filter>
-        <groupTable id="longIdMainStoreEntitiesTable"
+        <groupTable id="timestampTzEntitiesTable"
                     width="100%"
-                    dataContainer="longIdMainStoreEntitiesDc">
+                    dataContainer="timestampTzEntitiesDc">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="name"/>
+                <column id="description"/>
+                <column id="dateTimeValue"/>
+                <column id="localDateTimeValue"/>
+                <column id="offsetDateTimeValue"/>
             </columns>
-            <simplePagination itemsPerPageVisible="true" itemsPerPageOptions="5, 10, 20"/>
+            <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="longIdMainStoreEntitiesTable.create"/>
-                <button id="editBtn" action="longIdMainStoreEntitiesTable.edit"/>
-                <button id="removeBtn" action="longIdMainStoreEntitiesTable.remove"/>
+                <button id="createBtn" action="timestampTzEntitiesTable.create"/>
+                <button id="editBtn" action="timestampTzEntitiesTable.edit"/>
+                <button id="removeBtn" action="timestampTzEntitiesTable.remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

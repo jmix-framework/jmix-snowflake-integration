@@ -4,34 +4,30 @@
     <menu id="application" caption="msg://com.company.snowflake/menu.application" insertBefore="administration">
         <item screen="User.browse" caption="msg://com.company.snowflake.screen.user/UserBrowse.caption"/>
         <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
-        <item screen="TestSfEntity.browse"
-              caption="msg://com.company.snowflake.screen.testsfentity/testSfEntityBrowse.menu"/>
         <item screen="NumericTypesEntity.browse"
               caption="msg://com.company.snowflake.screen.numerictypesentity/numericTypesEntityBrowse.menu"/>
         <item screen="StringTypesEntity.browse"
               caption="msg://com.company.snowflake.screen.stringtypesentity/stringTypesEntityBrowse.menu"/>
         <item screen="DateTimeTypesEntity.browse"
               caption="msg://com.company.snowflake.screen.datetimetypesentity/dateTimeTypesEntityBrowse.menu"/>
-        <item screen="MainStoreSimpleEntity.browse"
-              caption="msg://com.company.snowflake.screen.mainstoresimpleentity/mainStoreSimpleEntityBrowse.menu"/>
-        <item screen="LongIdMainStoreEntity.browse"
-              caption="msg://com.company.snowflake.screen.longidmainstoreentity/longIdMainStoreEntityBrowse.menu"/>
         <item screen="LongIdEntity.browse"
               caption="msg://com.company.snowflake.screen.longidentity/longIdEntityBrowse.menu"/>
         <item screen="SandboxScreen" caption="msg://com.company.snowflake.screen.sandbox/sandboxScreen.caption"/>
         <item screen="ReferenceEntity.browse"
               caption="msg://com.company.snowflake.screen.referenceentity/referenceEntityBrowse.menu"/>
         <item screen="MainEntity.browse" caption="msg://com.company.snowflake.screen.mainentity/mainEntityBrowse.menu"/>
-        <item screen="SimpleMainEntity.browse"
-              caption="msg://com.company.snowflake.screen.simplemainentity/simpleMainEntityBrowse.menu"/>
         <item screen="BooleanTypesEntity.browse"
               caption="msg://com.company.snowflake.screen.booleantypesentity/booleanTypesEntityBrowse.menu"/>
         <item screen="BinaryTypesEntity.browse"
               caption="msg://com.company.snowflake.screen.binarytypesentity/binaryTypesEntityBrowse.menu"/>
         <item screen="TimeTypesEntity.browse"
               caption="msg://com.company.snowflake.screen.timetypesentity/timeTypesEntityBrowse.menu"/>
-        <item screen="TimeTypesMainEntity.browse"
-              caption="msg://com.company.snowflake.screen.timetypesmainentity/timeTypesMainEntityBrowse.menu"/>
+        <item screen="TimestampNtzEntity.browse"
+              caption="msg://com.company.snowflake.screen.timestampntzentity/timestampNtzEntityBrowse.menu"/>
+        <item screen="TimestampLtzEntity.browse"
+              caption="msg://com.company.snowflake.screen.timestampltzentity/timestampLtzEntityBrowse.menu"/>
+        <item screen="TimestampTzEntity.browse"
+              caption="msg://com.company.snowflake.screen.timestamptzentity/timestampTzEntityBrowse.menu"/>
     </menu>
 
 </menu-config>
